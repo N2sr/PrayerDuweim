@@ -18,7 +18,27 @@ jobs:
           cp index.html app/src/main/assets/
           cp MainActivity.java app/src/main/java/com/duweim/prayerduweim/
           cp AndroidManifest.xml app/src/main/
-          cp build.gradle app/
+          cat > app/build.gradle << 'EOF'
+          plugins {
+              id 'com.android.application' version '8.5.0'
+          }
+          android {
+              namespace 'com.duweim.prayerduweim'
+              compileSdk 29
+              defaultConfig {
+                  applicationId "com.duweim.prayerduweim"
+                  minSdk 21
+                  targetSdk 29
+                  versionCode 1
+                  versionName "1.0"
+              }
+              buildTypes {
+                  release {
+                      minifyEnabled false
+                  }
+              }
+          }
+          EOF
           cat > app/src/main/res/values/strings.xml << 'EOF'
           <?xml version="1.0" encoding="utf-8"?>
           <resources>
