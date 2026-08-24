@@ -10,9 +10,19 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
+      - name: Install Android SDK
+        run: |
+          mkdir -p $HOME/android-sdk
+          cd $HOME/android-sdk
+          curl -o commandlinetools.zip https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip
+          unzip commandlinetools.zip
+          mkdir -p cmdline-tools/latest
+          mv cmdline-tools/* cmdline-tools/latest/ 2>/dev/null || true
+          yes | cmdline-tools/latest/bin/sdkmanager --licenses
+          cmdline-tools/latest/bin/sdkmanager "platform-tools" "platforms;android-29" "build-tools;29.0.3"
       - name: Create project structure
+        env:
+          ANDROID_HOME: ${{ env.HOME }}/android-sdk
         run: |
           mkdir -p app/src/main/assets
           mkdir -p app/src/main/java/com/duweim/prayerduweim
@@ -27,6 +37,8 @@ jobs:
           </resources>
           EOF
       - name: Build APK
+        env:
+          ANDROID_HOME: ${{ env.HOME }}/android-sdk
         run: |
           cd app
           gradle assembleDebug
