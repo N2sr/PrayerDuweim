@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🕌 مواقيت الصلاة - الدويم"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="30dp"/>
+
+    <TextView
+        android:id="@+id/fajrText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="الفجر: --:--"
+        android:textSize="20sp"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:id="@+id/dhuhrText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="الظهر: --:--"
+        android:textSize="20sp"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:id="@+id/asrText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="العصر: --:--"
+        android:textSize="20sp"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:id="@+id/maghribText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="المغرب: --:--"
+        android:textSize="20sp"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:id="@+id/ishaText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="العشاء: --:--"
+        android:textSize="20sp"
+        android:layout_marginBottom="30dp"/>
+
+    <Button
+        android:id="@+id/updateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="تحديث الأوقات"/>
+
+</LinearLayout>
+D
+cat app/src/main/res/strings.xml
